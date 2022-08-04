@@ -41,11 +41,32 @@ function orderAlphabetically(array) {
   // Mejor con slice(), ya que de esta forma no muta el array[] original (splice o length)
   const top20 = ordenAlfabetico.slice(0, 20);
 
+  console.log('EXERCISE 4 ->', top20);
   return top20;
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {}
+function orderByYear(array) {
+  // Nueva array - copia
+  const arr = array.map((item) => ({ ...item }));
+
+  // Ordenar por año de producción (y alfabéticamente si coincide el año)
+  const sortYearAlpha = arr.sort((a, b) => {
+    if (a.year === b.year) {
+      return a.title < b.title ? -1 : 1;
+    }
+
+    if (a.year < b.year) {
+      return -1;
+    }
+    if (a.year > b.year) {
+      return 1;
+    }
+  });
+
+  console.log('EXERCISE 5 ->', sortYearAlpha);
+  return sortYearAlpha;
+}
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory() {}
