@@ -47,7 +47,7 @@ function orderAlphabetically(array) {
 
 // Exercise 5: Order by year, ascending
 function orderByYear(array) {
-  // Nueva array - copia
+  // Nueva array - "copia"
   const arr = array.map((item) => ({ ...item }));
 
   // Ordenar por año de producción (y alfabéticamente si coincide el año)
@@ -69,7 +69,16 @@ function orderByYear(array) {
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {}
+function moviesAverageByCategory(array, genre) {
+  const genero = array.filter(
+    (item) => item.genre.includes(genre) && item.score !== ''
+  );
+
+  const average = moviesAverageOfDirector(genero);
+
+  console.log('EXERCISE 6 ->', average);
+  return average;
+}
 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes() {}
